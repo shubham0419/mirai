@@ -31,3 +31,6 @@ function dbupload(compressedUrl){
 }
 
 upload("https://myimage.com",compress);
+
+
+// more problems - https://www.notion.so/Callback-3089fc5e86058055bb2bfef568d40971?source=copy_link
