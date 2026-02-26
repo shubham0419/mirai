@@ -21,6 +21,8 @@ async function fun(){
   return response;
 }
 
+let data = await fun();
+console.log("module-type",data);   //type = module in index.html will convert the whole file in async file
 // await fun()    //we can't use await outside async function (it will have no effect)
 // fun().then((data)=>console.log(data)).catch((err)=>console.log(err));
 
