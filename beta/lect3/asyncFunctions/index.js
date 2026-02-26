@@ -47,7 +47,8 @@ async function fun(){
   const response = await pm;
   return response;
 }
-const ans = fun();
-ans.then((data)=>console.log(data)).catch((err)=>console.log(err));
+const ans = await fun();
+console.log(ans);
+// ans.then((data)=>console.log(data)).catch((err)=>console.log(err));
 
 // questions -> https://www.notion.so/Async-Await-3089fc5e8605805fa77ae5e579acb0ff?source=copy_link
