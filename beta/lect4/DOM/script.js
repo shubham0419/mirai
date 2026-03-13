@@ -1,4 +1,3 @@
-
 const ele = document.querySelector(".cl1");    // it will give first matching element
 const eles = document.querySelectorAll(".cl1");  // it will return a list of matching elements
 
@@ -27,3 +26,24 @@ console.log(ele.classList);
 
 ele.classList.toggle("cl5");
 console.log(ele.classList);
+
+let mytag = document.createElement("shubham");
+
+mytag.style.display = "block";
+// mytag.style.display = "";
+mytag.classList.add("shub")
+mytag.innerHTML = "Hi this tag is created by me";
+
+console.log(mytag);
+
+const section = document.getElementsByTagName("section")[0];
+// to place element after or befor any element
+section.after(mytag);
+section.before(mytag);
+
+// to place element inside any element
+const div = ele.parentElement;
+div.append("we can also add text with the help of append");
+div.append(mytag);
+div.appendChild(mytag);
+div.prepend(mytag)    // adds at the starting of the eleemnt

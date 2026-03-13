@@ -5,3 +5,10 @@
 .cl2{
   text-decoration: underline;
 }
+
+.shub{
+  display: block;
+  font-size: xx-large;
+  color: blueviolet;
+  background-color: aquamarine;
+}

@@ -6,23 +6,30 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
   <!-- <script defer src="script.js"></script> -->
-  <!-- defer will wait the js to load untill the html is loaded -->
+  <!-- defer will pause the loading of JS untill HTML is loaded -->
   <!-- <script async src="script.js"></script> -->
-  <!-- it will load js and html parallely -->
+  <!-- it will load both the HTML and JS paralelly.(it can give error if requested 
+   element is not loaded yet.) -->
 </head>
 <body>
   <h1>DOM</h1>
+
   <section>
     <div>
+      
       <p id="sp" name="mypara" class="cl1 cl2 cl3 cl4">Lorem 
         <b>ipsum dolor</b>
         sit amet.
       </p>
       <span>hello</span>
+
     </div>
   </section>
 
+
+
   <article class="cl1"> Lorem ipsum dolor sit amet consectetur adipisicing.</article>
+  
   <script src="script.js"></script>
 </body>
 </html>
