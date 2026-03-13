@@ -9,21 +9,21 @@ const body = document.getElementsByTagName("body")[0];
 body.style.height = "100vh"
 body.addEventListener("dblclick",(e)=>{
   console.log(e.clientX,e.clientY);
-  const circle = createCircle();
-  console.log(circle);
-  circle.style.position = "absolute";
-  circle.style.left = e.clientX;
-  circle.style.top = e.clientY;
-  body.appendChild(circle);
+  const obj = createCircle();
+  obj.circle.style.position = "absolute";
+  obj.circle.style.left = `${e.clientX-obj.radius}px`;
+  obj.circle.style.top = `${e.clientY-obj.radius}px`;
+  body.appendChild(obj.circle);
 })
 
 // create a function -> createCircle
 function createCircle(){
   // formula -> (Math.random()*[max-min]+min)
-  const radius = ((Math.random()*300)+ 50);
+  const radius = (Math.round(Math.random()*100)+ 50);
   const div = document.createElement("div");
-  div.style.height = radius*2;
-  div.style.width = radius*2;
+  console.log(radius);
+  div.style.height = `${radius*2}px`;
+  div.style.width = `${radius*2}px`;
   div.classList.add("circle");
-  return div;
+  return {circle:div,radius};
 }
