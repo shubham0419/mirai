@@ -1,6 +1,20 @@
 const form = document.getElementById("search_post");
 const postContsiner = document.getElementById("posts");
 
+// localStorage.setItem("name","shubham")
+// console.log(localStorage.getItem("name"))
+// localStorage.removeItem("name")
+
+let obj = {
+  name:"shubham",
+  num:9
+}
+// to convert anything into string.
+// let strObj = JSON.stringify(obj);
+// console.log(strObj);
+// let realObj = JSON.parse(strObj);
+// console.log(realObj);
+
 form.addEventListener("submit",(e)=>{
   e.preventDefault()      // to prevent default functionality(refresh of page)
   // e.target.children[0] -> returns input element
