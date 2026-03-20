@@ -7,7 +7,6 @@ let direction = "RIGHT";
 let food = {x:10,y:10};
 let speed = 300;
 let score = 0;
-console.log(canvas.height);
 
 function draw() {
   // Clear canvas
