@@ -7,7 +7,7 @@ let snake = [{x:10,y:10}]
 let food = {x:20,y:20}
 let direction = "RIGHT"
 let score = 0;
-let speed = 100;
+let speed = 150;
 
 function draw(){
   ctx.fillStyle = "#1a1a1a";
@@ -39,9 +39,11 @@ function move() {
   // Add new head to front
   snake.unshift(head);
   // Check if food eaten
-  if (head.x === food.x &&
-      head.y === food.y) {
+  if (head.x === food.x && head.y === food.y) {
     score++;
+    if(score%5 ==0){
+      speed = speed -5;
+    }
     placeFood();
   } else {
     snake.pop(); // Remove tail
@@ -86,25 +88,33 @@ function placeFood() {
   food.x = Math.floor(Math.random() * GRID);
   food.y = Math.floor(Math.random() * GRID);
 }
-
+let gameRunning = false;
 function gameLoop() {
   // Update game state
-  move();
-  // Check if game over
-  if (checkCollision()) {
-    alert('Game Over! Score: '+ score);
-    // Reset game
-    snake = [{x: 10, y: 10}];
-    direction = 'RIGHT';
-    score = 0;
-    placeFood();
+  if(gameRunning){
+    move();
+    // Check if game over
+    if (checkCollision()) {
+      gameRunning=false;
+      alert('Game Over! Score: '+ score);
+      // Reset game
+      snake = [{x: 10, y: 10}];
+      direction = 'RIGHT';
+      score = 0;
+      placeFood();
+    }
+    // Draw everything
+    draw();
+    // Schedule next frame
+    setTimeout(gameLoop, speed);
   }
-  // Draw everything
-  draw();
-  // Schedule next frame
-  setTimeout(gameLoop, speed);
 }
 
 // Start the game!
-placeFood();
-gameLoop();
+const start_btn = document.querySelector("button");
+
+start_btn.addEventListener("click",(e)=>{
+  gameRunning = true;
+  placeFood();
+  gameLoop();
+})

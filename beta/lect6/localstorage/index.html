@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #posts{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #posts>div{
+      border: 2px solid black;
+      padding: 5px 10px;
+      width: 25%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Local storage</h1>
+  <form id="search_post">
+    <input type="number" placeholder="Enter Id">
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="posts">
+
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
