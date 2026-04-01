@@ -21,5 +21,17 @@ console.log(data);
 fs.appendFile("beta/lect7/nodejsbasics/first.txt","\nhello this is line 2","utf-8",(err)=>{
   console.log(err);
 })
+// to delete a file
+fs.unlink("beta/lect7/nodejsbasics/myfile.txt",(err)=>{
+  console.log(err);
+})
+// to create a folder
+fs.mkdir("beta/lect7/nodejsbasics/mydir",(err)=>{
+  console.log(err);
+})
+// to delete a folder
+fs.rmdir("beta/lect7/nodejsbasics/mydir",(err)=>{
+  console.log(err);
+})
 
 console.log("end")
