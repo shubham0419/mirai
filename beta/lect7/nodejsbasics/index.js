@@ -8,7 +8,8 @@ console.log("start");
 fs.writeFile("beta/lect7/nodejsbasics/first.txt","hello this is line 1","utf-8",(err)=>{
   console.log(err);
 })
-fs.writeFileSync("beta/lect7/nodejsbasics/first.txt","hello this is line 1","utf-8")
+
+fs.writeFileSync("beta/lect7/nodejsbasics/first.txt","hello this is line 3","utf-8")
 
 fs.readFile("beta/lect7/nodejsbasics/first.txt","utf-8",(err,data)=>{
   console.log(data);
@@ -21,4 +22,4 @@ fs.appendFile("beta/lect7/nodejsbasics/first.txt","\nhello this is line 2","utf-
   console.log(err);
 })
 
-console.log("end");
+console.log("end")

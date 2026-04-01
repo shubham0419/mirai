@@ -24,3 +24,11 @@ fs.appendFile("./first.txt","\nthis is appended text","utf-8",(err)=>{
 fs.unlink("./first.txt",(err)=>{
   console.log(err);
 })
+
+fs.writeFile("alpha/lect7/nodejsbasic/myfile.txt","this is test","utf-8",(err)=>{
+  console.log(err);
+})
+
+fs.mkdir("alpha/lect7/nodejsbasic/mydir",(err)=>{
+  console.log(err);
+})
