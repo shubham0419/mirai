@@ -2,26 +2,25 @@ const express = require("express")    //import express from node_modules
 const app = express()
 const PORT=4000;
 
-// middlewares
-// app.use("/",(req,res)=>{
-//   console.log("middleware");
-//   // req will get stuck as we haven't send it to next function/middleware
-// })
-
-// this will run for every api req
-app.use((req,res,next)=>{
-  console.log("middleware");
-  next()    // it's passes the req to next middleware
+app.use("/user",(req,res,next)=>{
+  console.log("user middleware");
+  next();
 })
 
-// this will run for every api whose path starts with -> "/"
-app.use("/",(req,res,next)=>{
-  console.log("middleware");
-  next()    // it's passes the req to next middleware
+app.get("/user/profile",(req,res)=>{
+  res.send("user data")
 })
 
-// req (type/method , url/path)
-// home route -> "/"
+app.put("/user/id/update",(req,res)=>{
+  res.send("user updated")
+})
+
+app.delete("/user/id/delete",(req,res)=>{
+  res.send("user deleted")
+})
+
+
+
 // req -> client information , res -> send response to user
 app.get("/",(req,res)=>{
   console.log("hello");
