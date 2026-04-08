@@ -19,8 +19,6 @@ app.delete("/user/id/delete",(req,res)=>{
   res.send("user deleted")
 })
 
-
-
 // req -> client information , res -> send response to user
 app.get("/",(req,res)=>{
   console.log("hello");
