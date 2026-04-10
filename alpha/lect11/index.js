@@ -21,7 +21,9 @@ app.use(express.json())
 app.post("/user/create",(req,res)=>{
   const body = req.body;
   console.log(body);
-  res.send("body received",body);
+  // res.json("body received",body)  wrong -> json is always object
+  res.json({message:"body received",data:body})
+  // res.send("body received",body);
 })
 
 // start server , port -> mapping of process in system
