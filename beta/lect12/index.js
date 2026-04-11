@@ -20,11 +20,13 @@ app.use("/user",(req,res,next)=>{
   console.log("user middleware");
   next()
 })
+
 // this will run for the API's which starts with "/product"
 app.use("/product",(req,res,next)=>{
   console.log("product middleware");
   next()
 })
+
 app.get("/user/:id/data",(req,res)=>{
   const params = req.params
   const id = params.id
@@ -37,6 +39,16 @@ app.get("/product/:id/data",(req,res)=>{
   const id = params.id
   console.log("product",id);
   res.send(id)
+})
+
+const routerLevel = (req,res,next)=>{
+  console.log("router level");
+  next()
+}
+
+app.get("/info",routerLevel,(req,res)=>{
+  console.log("info api");
+  res.send("report generated");
 })
 
 app.listen(PORT, () => console.log("Server running on port " + PORT));
