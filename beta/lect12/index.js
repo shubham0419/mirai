@@ -21,7 +21,7 @@ app.use("/user",(req,res,next)=>{
   next()
 })
 // this will run for the API's which starts with "/product"
-app.use("/produt",(req,res,next)=>{
+app.use("/product",(req,res,next)=>{
   console.log("product middleware");
   next()
 })
