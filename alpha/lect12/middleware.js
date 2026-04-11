@@ -23,12 +23,22 @@ app.use("/product",(req,res,next)=>{
   next();
 })
 
+const routerlevel = (req,res,next)=>{
+  console.log("router level middleware");
+  next()
+}
+
 app.get("/user/all",(req,res)=>{
   res.json({users:["user 1","user 2"]})
 })
 
 app.get("/product/all",(req,res)=>{
   res.json({users:["product 1","product 2"]})
+})
+
+app.get("/info",routerlevel,(req,res)=>{
+  console.log("app report");
+  res.send("report generated")
 })
 
 app.listen(PORT,()=>{
