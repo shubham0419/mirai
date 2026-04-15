@@ -12,6 +12,9 @@ let TODOS = [];
 //    createdAt: Date.now()
 // }
 app.use(express.static(path.join(__dirname,"public")))
+// to convert body data back to json
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 app.get("/todo/all",(req,res)=>{
   try {
@@ -24,6 +27,7 @@ app.get("/todo/all",(req,res)=>{
 
 app.post("/todo/create",(req,res)=>{
   try {
+    console.log(req.body);
     const task = req.body.task;
     const todo = {
       id:uuidv4(),
