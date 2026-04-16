@@ -8,8 +8,9 @@ const {v4:uuid} = require("uuid")
 // absolute path of public folder
 // app.use(express.static("/Users/shbha/Desktop/cb/mirai/beta/lect13/todoapp/public"))
 app.use(express.static(path.join(__dirname,"public")))
+app.use(express.json())
 
-const TODOS = [];
+let TODOS = [];
 // {
 // id:unique id,
 // task:"cook food",
@@ -40,6 +41,35 @@ app.post("/todo/create",(req,res)=>{
     }
     TODOS.unshift(todo);
     res.status(201).json({message:"todo created",todos:TODOS})
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({message:error.message})
+  }
+})
+
+app.delete("/todo/:id/delete",(req,res)=>{
+  try {
+    const id = req.params.id;
+    TODOS = TODOS.filter((todo)=>{
+      return todo.id !== id
+    })
+    res.status(202).json({message:"Todo deleted",todos:TODOS})
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({message:error.message})
+  }
+})
+
+app.put("/todo/:id/update",(req,res)=>{
+  try {
+    const id = req.params.id;
+    TODOS = TODOS.map((todo)=>{
+      if(todo.id === id){
+        todo.status = !todo.status;
+      }
+      return todo;
+    })
+    res.status(200).json({message:"Todo updated", todos:TODOS})
   } catch (error) {
     console.log(error);
     res.status(500).json({message:error.message})
