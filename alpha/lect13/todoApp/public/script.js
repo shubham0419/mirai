@@ -6,6 +6,7 @@ form.addEventListener("submit",(e)=>{
   e.preventDefault();
   const task = form.children[0].value;
   createTodo(task)
+  form.children[0].value = "";
 })
 
 const createTodo = async (task)=>{
@@ -17,6 +18,7 @@ const container = document.getElementById("todo-container")
 const renderTodos = (todos)=>{
   todos.forEach(todo => {
     const div = document.createElement("div");
+    div.className = "todo";
     div.innerHTML = `<h3>${todo.task}</h3>
     <div id=${todo.id}>
       <button>Complete</button>
